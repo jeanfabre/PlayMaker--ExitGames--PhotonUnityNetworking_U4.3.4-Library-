@@ -12,7 +12,7 @@ This is the submodule you can use in your project
   - The local repository path must be "Assets/PlayMaker Utils"
 - Add a new github "SubModule", 
   - point to this repository: https://github.com/jeanfabre/PlayMaker--ExitGames--PhotonUnityNetworking_U4.3.4-Library-.git
-  - The local repository path must be "Assets/PlayMaker PUN/"
+  - The local repository path must be "Assets/PlayMaker PUN"
   
 
 
