@@ -1,4 +1,4 @@
-// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
 
 using UnityEngine;
 using System.Collections;
@@ -40,9 +40,9 @@ namespace HutongGames.PlayMaker.Actions
 			PhotonPlayer _player = PhotonNetwork.player;
 			
 			ExitGames.Client.Photon.Hashtable _prop = new ExitGames.Client.Photon.Hashtable();
-			Log(" set key "+customPropertyKey.Value+"="+ PlayMakerPhotonProxy.GetValueFromFsmVar(this.Fsm,customPropertyValue));
+			//Log(" set key "+customPropertyKey.Value+"="+ PlayMakerUtils.GetValueFromFsmVar(this.Fsm,customPropertyValue));
 			
-			_prop[customPropertyKey.Value] = PlayMakerPhotonProxy.GetValueFromFsmVar(this.Fsm,customPropertyValue);
+			_prop[customPropertyKey.Value] = PlayMakerUtils.GetValueFromFsmVar(this.Fsm,customPropertyValue);
 			_player.SetCustomProperties(_prop);
 		}
 

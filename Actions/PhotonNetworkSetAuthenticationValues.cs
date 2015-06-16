@@ -1,4 +1,4 @@
-// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
 
 using UnityEngine;
 
@@ -37,9 +37,10 @@ namespace HutongGames.PlayMaker.Actions
 			PhotonNetwork.AuthValues = new AuthenticationValues();
 			
 			PhotonNetwork.AuthValues.AuthType = authenticationType;
-			
-            PhotonNetwork.AuthValues.SetAuthParameters(authName.Value, authToken.Value);
-			
+
+			PhotonNetwork.AuthValues.AddAuthParameter("username", authName.Value);
+			PhotonNetwork.AuthValues.AddAuthParameter("token", authToken.Value);
+
 			PhotonNetwork.AuthValues.SetAuthPostData(authPostData.Value);
 			
 			Finish();

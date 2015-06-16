@@ -1,5 +1,14 @@
 #PlayMaker PUN Change Log
 
+###1.55
+**New**  
+- Updated to PUN 1.55  
+- Implemented PlayMakerUtils to prevent code redundancy
+
+**Fix**  
+- Fixed Wizard to accomodate api changes  
+
+
 ###1.5.1
 **New**  
 - updated to PUN 1.5.1  

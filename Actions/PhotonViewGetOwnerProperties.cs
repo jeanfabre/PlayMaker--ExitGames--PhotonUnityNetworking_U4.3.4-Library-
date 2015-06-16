@@ -1,4 +1,4 @@
-// (c) Copyright HutongGames, LLC 2010-2012. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
 
 using UnityEngine;
 
@@ -120,7 +120,7 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				if (_player.customProperties.ContainsKey(key.Value))
 				{
-					PlayMakerPhotonProxy.ApplyValueToFsmVar(this.Fsm,customPropertiesValues[i],_player.customProperties[key.Value]);
+					PlayMakerUtils.ApplyValueToFsmVar(this.Fsm,customPropertiesValues[i],_player.customProperties[key.Value]);
 				}else{
 					return false;
 				}

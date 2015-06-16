@@ -1,3 +1,5 @@
+// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
+
 using UnityEditor;
 using UnityEngine;
 using System.IO;
@@ -29,7 +31,6 @@ public class PlayMakerPhotonWizard : PhotonEditor
     static PlayMakerPhotonWizard()
     {
 		WindowType = typeof(PlayMakerPhotonWizard);
-		dontCheckPunSetup = true; 
 		RegisterOrigin = AccountService.Origin.Playmaker;
 		
 		CheckPunPlus();
@@ -151,8 +152,6 @@ public class PlayMakerPhotonWizard : PhotonEditor
 		
 			if (! PlayMakerPhotonEditorUtility.IsSceneSetup())
 			{
-				dontCheckPunSetup = true;
-			
 		        GUI.color = PlayMakerPhotonEditorUtility.lightOrange;
 		        if (GUILayout.Button(new GUIContent("Add Photon System to the scene", "Required for Photon and PlayMaker to work together")))
 		        {
@@ -167,8 +166,6 @@ public class PlayMakerPhotonWizard : PhotonEditor
 				
 			
 			}else{
-			
-				dontCheckPunSetup = false;
 				GUI.color = Color.green;
 				GUILayout.Label("The scene is set up properly.","box",GUILayout.ExpandWidth(true));
 			}
@@ -321,7 +318,7 @@ public class PlayMakerPhotonWizard : PhotonEditor
 	
 
 	
-	protected override void OnGuiMainWizard()
+	protected override void UiMainWizard() //OnGuiMainWizard()
 	{
 		OnBuildPlayMakerMainWizard();
 	}
@@ -337,7 +334,7 @@ public class PlayMakerPhotonWizard : PhotonEditor
         GUILayout.BeginHorizontal();
         GUILayout.Label("Settings", EditorStyles.boldLabel, GUILayout.Width(100));
 		
-		bool isNotSet = Current.HostType == ServerSettings.HostingOption.NotSet;
+		bool isNotSet = PhotonNetwork.PhotonServerSettings.HostType == ServerSettings.HostingOption.NotSet;
 		
 		if (!EditorApplication.isPlaying)
 		{
@@ -348,8 +345,11 @@ public class PlayMakerPhotonWizard : PhotonEditor
 				if (GUILayout.Button(new GUIContent("Setup", "Setup wizard for setting up your own server or the cloud.")))
 		        {
 					userHasSeenWizardIntro = true;
-					
-					InitPhotonSetupWindow();
+
+					PhotonEditor.ShowRegistrationWizard();
+					//base.photonSetupState = PhotonEditor.PhotonSetupStates.RegisterForPhotonCloud;
+					//base.isSetupWizard = false;
+					//InitPhotonSetupWindow();
 		         
 		       }
 				GUI.color = Color.white;
@@ -361,7 +361,11 @@ public class PlayMakerPhotonWizard : PhotonEditor
 			
 				if (GUILayout.Button(new GUIContent("Setup", "Setup wizard for setting up your own server or the cloud.")))
 		        {
-		           InitPhotonSetupWindow();
+
+					PhotonEditor.ShowRegistrationWizard();
+					//base.photonSetupState = PhotonEditor.PhotonSetupStates.RegisterForPhotonCloud;
+					//base.isSetupWizard = false;
+					//InitPhotonSetupWindow();
 		        }
 				GUI.color = Color.green;
 				GUILayout.Label("Photon server is set up properly.","box",GUILayout.ExpandWidth(true));
@@ -399,21 +403,22 @@ public class PlayMakerPhotonWizard : PhotonEditor
 	}
 	
 	
-	protected override void OnGuiRegisterCloudApp()
+	protected override void UiSetupApp() // OnGuiRegisterCloudApp()
 	{
 		
 		if (EditorApplication.isPlaying)
 		{
-			OnGuiMainWizard();
+			OnBuildPlayMakerMainWizard();
+			//OnGuiMainWizard();
 		}else{
 			
-			bool isNotSet = Current.HostType == ServerSettings.HostingOption.NotSet;
+			bool isNotSet = PhotonNetwork.PhotonServerSettings.HostType == ServerSettings.HostingOption.NotSet;
 			
 			if ( isNotSet)
        	 	{
 				 if (userHasSeenWizardIntro )
 				{	
-					base.OnGuiRegisterCloudApp();
+					base.UiSetupApp();
 				}else{
 					//OnGuiMainWizard();
 					OnBuildPlayMakerMainWizard();
@@ -425,7 +430,7 @@ public class PlayMakerPhotonWizard : PhotonEditor
 				GUILayout.Label("Photon server is set up properly.","box",GUILayout.ExpandWidth(true));
 				GUI.color = Color.white;
 				
-				base.OnGuiRegisterCloudApp();
+				base.UiSetupApp();
 			}
 	
 		}

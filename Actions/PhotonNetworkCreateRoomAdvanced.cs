@@ -1,4 +1,4 @@
-// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
 
 using UnityEngine;
 using System.Collections;
@@ -67,7 +67,7 @@ namespace HutongGames.PlayMaker.Actions
 			int i = 0;
 			foreach(FsmString _prop in customPropertyKey)
 			{
-				_props[_prop.Value] =  PlayMakerPhotonProxy.GetValueFromFsmVar(this.Fsm,customPropertyValue[i]);
+				_props[_prop.Value] =  PlayMakerUtils.GetValueFromFsmVar(this.Fsm,customPropertyValue[i]);
 				i++;
 			}
 			
