@@ -1,5 +1,12 @@
 #PlayMaker PUN Change Log
 
+###1.57
+**Update**  
+- Updated to PUN 1.57
+
+**Fix**  
+- Replaced [RPC] with [PunRPC] 
+
 ###1.55
 **New**  
 - Updated to PUN 1.55  

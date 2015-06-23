@@ -505,7 +505,7 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 	/// <param name='info'>
 	/// Info.
 	/// </param>
-	[RPC]
+	[PunRPC]
 	void rpc(string globalEventName,PhotonMessageInfo info) // method name used to be too long :  RPC_PhotonRpcBroadcastFsmEvent
 	{
 		if (LogMessageInfo)
@@ -528,7 +528,7 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 	/// <param name='info'>
 	/// Info.
 	/// </param>
-	[RPC]
+	[PunRPC]
 	void rpc_s(string globalEventName,string stringData,PhotonMessageInfo info)// method name used to be too long : RPC_FsmPhotonRpcBroadcastFsmEventWithString
 	{
 		if (LogMessageInfo)
