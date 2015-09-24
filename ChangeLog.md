@@ -1,5 +1,14 @@
 #PlayMaker PUN Change Log
 
+###1.61
+**Release**  
+- 24/09/2015  
+**Update**  
+- Updated to PUN 1.61  
+
+**Fix**  
+- matchmakingMode enum to use the right directive
+
 ###1.60
 **Release**  
 - 31/08/2015  

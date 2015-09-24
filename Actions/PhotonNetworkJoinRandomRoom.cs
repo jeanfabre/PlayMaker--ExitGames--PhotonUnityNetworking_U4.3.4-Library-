@@ -3,6 +3,8 @@
 using UnityEngine;
 using System.Collections;
 
+using ExitGames.Client.Photon;
+
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("Photon")]
@@ -83,6 +85,7 @@ namespace HutongGames.PlayMaker.Actions
 			
 			if (withExpections)
 			{
+
 				MatchmakingMode _mode = MatchmakingMode.FillRoom;
 				if (matchMakingMode == PhotonMatchMakingMode.RandomMatching)
 				{
