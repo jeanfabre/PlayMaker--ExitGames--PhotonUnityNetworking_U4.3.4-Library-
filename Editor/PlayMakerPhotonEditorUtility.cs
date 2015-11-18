@@ -17,7 +17,7 @@ public class PlayMakerPhotonEditorUtility : Editor
 {
     const string PlayMakerPhotonMenuRoot = "PlayMaker/Addons/Photon Networking/";
 	
-    public const float supportedPUNVersion = 1.62f;
+    public const float supportedPUNVersion = 1.64f;
 
 	static string PlayMakerPhotonProxyName = "PlayMaker Photon Proxy";
 	
@@ -175,7 +175,13 @@ public class PlayMakerPhotonEditorUtility : Editor
 	public static bool IsPunVersionSupported()
 	{
 		string _versionPUN = PhotonNetwork.versionPUN;
-		
+
+		string[] numbers = _versionPUN.Split('.');
+		if (numbers.Length>2)
+		{
+			_versionPUN = numbers[0]+"."+numbers[1];
+		}
+
 		float versionNumber = 0f;
 		if (float.TryParse(_versionPUN,out versionNumber))
 		{
