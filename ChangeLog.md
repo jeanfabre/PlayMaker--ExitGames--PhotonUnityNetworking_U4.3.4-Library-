@@ -2,6 +2,20 @@
 
 ###1.64.2
 **Release**  
+- 13/01/2016   
+
+**Update**  
+- Updated to PUN 1.65  
+- Updated PlayMaker Utils
+
+**New**  
+- `PhotonNetworkGetSendRate`  
+- `PhotonNetworkGetSendRateOnSerialize`  
+- `PhotonNetworkSetSendRate`  
+- `PhotonNetworkSetSendRateOnSerialize`
+
+###1.64.2
+**Release**  
 - 18/11/2015  
 **Update**  
 - Updated to PUN 1.64.2  
