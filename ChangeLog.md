@@ -4,9 +4,13 @@
 **Release**  
 - 26/04/2016  
 
+**Update**  
 - Updated to PUN 1.65  
 - Updated PlayMaker Utils
  
+**Fix**  
+- Pun+ warning in 5 is now removed  
+
 ###1.64.2
 **Release**  
 - 13/01/2016   
@@ -14,7 +18,6 @@
 **Update**  
 - Updated to PUN 1.65  
 - Updated PlayMaker Utils
-
 **New**  
 - `PhotonNetworkGetSendRate`  
 - `PhotonNetworkGetSendRateOnSerialize`  
@@ -24,6 +27,7 @@
 ###1.64.2
 **Release**  
 - 18/11/2015  
+
 **Update**  
 - Updated to PUN 1.64.2  
 
