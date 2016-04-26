@@ -1,5 +1,12 @@
 #PlayMaker PUN Change Log
 
+###1.67
+**Release**  
+- 26/04/2016  
+
+- Updated to PUN 1.65  
+- Updated PlayMaker Utils
+ 
 ###1.64.2
 **Release**  
 - 13/01/2016   
