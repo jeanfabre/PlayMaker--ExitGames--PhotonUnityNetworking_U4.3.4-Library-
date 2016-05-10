@@ -1,5 +1,20 @@
 #PlayMaker PUN Change Log
 
+###1.68
+**Release**  
+- 10/05/2016  
+
+**Update**  
+- Updated to PUN 1.68  
+
+###1.67.1
+**Release**  
+- 06/05/2016  
+
+**Fix**  
+- missing event `PHOTON / MAX CCCU REACHED`  
+
+
 ###1.67
 **Release**  
 - 26/04/2016  

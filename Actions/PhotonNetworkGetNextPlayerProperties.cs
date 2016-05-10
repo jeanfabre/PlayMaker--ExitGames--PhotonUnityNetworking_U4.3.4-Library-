@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("Photon")]
-	[Tooltip("Let's you loop through the Players in the room. This action works only when you are in a room.")]
+	[Tooltip("Let's you loop through the Players properties. This action works only when you are in a room.")]
 	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1112")]
 	public class PhotonNetworkGetNextPlayerProperties : FsmStateAction
 	{

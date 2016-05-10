@@ -1,4 +1,4 @@
-// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEditor;
 using UnityEngine;
@@ -17,7 +17,7 @@ public class PlayMakerPhotonEditorUtility : Editor
 {
     const string PlayMakerPhotonMenuRoot = "PlayMaker/Addons/Photon Networking/";
 	
-    public const float supportedPUNVersion = 1.67f;
+    public const float supportedPUNVersion = 1.68f;
 
 	static string PlayMakerPhotonProxyName = "PlayMaker Photon Proxy";
 	
