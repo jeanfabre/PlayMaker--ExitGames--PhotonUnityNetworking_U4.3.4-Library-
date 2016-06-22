@@ -384,20 +384,15 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 		}
 		return null;
 	}// GetPhotonViewObservingFsm
-
-	
-	
-	
 	
 	#endregion
-	
-	
+
 	#region Photon RPC PLAYER
 	/// <summary>
 	/// output in the console photon message activity.
 	/// TODO: should be set to false for release
 	/// </summary>
-	public bool LogMessageInfo = true;
+	public bool LogMessageInfo = false;
 	
 	/// <summary>
 	/// Function typically called from the action "PhotonViewRpcBroadcasFsmEvent" that use RPC to send information about the event to broadcast
@@ -925,7 +920,19 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
        
 		PlayMakerFSM.BroadcastEvent ("PHOTON / PLAYER PROPERTIES CHANGED");
 	}
-	
+
+	/// <summary>
+	/// called when the list PhotonNetwork.Friends is refreshed. Request initiated with PhotonNetworkFindFriends action.
+	/// </summary>
+	public void OnUpdatedFriendList()
+	{
+		if (debug) {
+			Debug.Log ("PLayMaker Photon proxy:OnUpdatedFriendList: "+ PhotonNetwork.Friends.Count);
+		}
+
+		PlayMakerFSM.BroadcastEvent ("PHOTON / FRIEND LIST UPDATED");
+	}
+
 
 	#endregion
 	

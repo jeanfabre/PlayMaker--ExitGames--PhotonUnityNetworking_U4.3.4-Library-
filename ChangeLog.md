@@ -1,5 +1,20 @@
 #PlayMaker PUN Change Log
 
+###1.71
+**Release**  
+- 22/06/2016  
+
+**Update**  
+- Updated to PUN 1.71  
+
+**New** 
+- Friend Support  
+- event `PHOTON / FRIEND LIST UPDATED`  
+- Action `PhotonNetworkFindFriends`  
+- Action `PhotonNetworkGetFriendsOnlineStatus`  
+- Action `PhotonNetworkGetFriendsinRoomStatus`  
+- Action `PhotonNetworkGetFriendsRoomStatus`  
+
 ###1.69
 **Release**  
 - 24/05/2016  
