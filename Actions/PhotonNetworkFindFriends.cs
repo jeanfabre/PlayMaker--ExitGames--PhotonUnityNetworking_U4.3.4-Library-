@@ -15,6 +15,9 @@ namespace HutongGames.PlayMaker.Actions
 		[ArrayEditor(VariableType.String)]
 		public FsmArray friendlist;
 
+		[Tooltip("Event sent if call failed, likely because it can only be requested if in lobby, not within a room")]
+		public FsmEvent failureEvent;
+
 
 		public override void Reset()
 		{
@@ -24,7 +27,12 @@ namespace HutongGames.PlayMaker.Actions
 		public override void OnEnter()
 		{
 
-			PhotonNetwork.FindFriends(friendlist.stringValues);
+			if (PhotonNetwork.inRoom)
+			{
+				Fsm.Event(failureEvent);
+			}else{
+				PhotonNetwork.FindFriends(friendlist.stringValues);
+			}
 
 			Finish();
 		}

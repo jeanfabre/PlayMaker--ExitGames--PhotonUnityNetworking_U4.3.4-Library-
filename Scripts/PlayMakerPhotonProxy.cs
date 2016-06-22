@@ -927,7 +927,7 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 	public void OnUpdatedFriendList()
 	{
 		if (debug) {
-			Debug.Log ("PLayMaker Photon proxy:OnUpdatedFriendList: "+ PhotonNetwork.Friends.Count);
+			Debug.Log ("PLayMaker Photon proxy:OnUpdatedFriendList ");
 		}
 
 		PlayMakerFSM.BroadcastEvent ("PHOTON / FRIEND LIST UPDATED");
