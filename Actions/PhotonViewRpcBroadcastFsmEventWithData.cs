@@ -5,9 +5,9 @@ using UnityEngine;
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("Photon")]
-	[Tooltip("Remote Event Calls (using Photon RPC under the hood) let you broadcast a Fsm Event to photon targets ( all players, other players, master).")]
-	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W920")]
-	public class PhotonViewRpcBroadcastFsmEvent : FsmStateAction
+	[Tooltip("Remote Event Calls (using Photon RPC under the hood) let you broadcast a Fsm Event to photon targets ( all players, other players, master).also let you send one or more Fsm Variables")]
+	[HelpUrl("")]
+	public class PhotonViewRpcBroadcastFsmEventWithData : FsmStateAction
 	{
 		public PhotonTargets photonTargets;
 		
@@ -23,8 +23,8 @@ namespace HutongGames.PlayMaker.Actions
 		[UIHint(UIHint.FsmEvent)]
 		public FsmEvent remoteEvent;
 		
-		[Tooltip("Optionnal string data ( will be injected in the Event data. Use 'get Event Info' action to retrieve it)")]
-		public FsmString stringData;
+		[Tooltip("Optionnal array of variable data ( will be injected in the Event data. Use 'Get Event data' action to retrieve it)")]
+		public FsmVar[] data;
 		
 	
 		public override void Reset()
@@ -35,18 +35,19 @@ namespace HutongGames.PlayMaker.Actions
 			
 			remoteEvent = null;
 			photonTargets = PhotonTargets.All;
-			photonTargetsFromString = null;
-			stringData = null;
+
+			photonTargetsFromString = new FsmString() {UseVariable=true};
+			data = null;
 		}
 
 		public override void OnEnter()
 		{
-			DoREC();
+			DoRPC();
 			
 			Finish();
 		}
 
-		void DoREC()
+		void DoRPC()
 		{
 			
 			// get the photon proxy for Photon RPC access
@@ -76,8 +77,8 @@ namespace HutongGames.PlayMaker.Actions
 			if (eventTarget.target == FsmEventTarget.EventTarget.BroadcastAll)
 			{
 				
-				if (! stringData.IsNone && stringData.Value != ""){
-					_proxy.PhotonRpcBroacastFsmEventWithString(_photonTargets,remoteEvent.Name,stringData.Value);
+				if (data.Length>0 ){
+					//_proxy.PhotonRpcFsmBroadcastEventWithData(_photonTargets,remoteEvent.Name,data);
 				}else{
 					_proxy.PhotonRpcBroacastFsmEvent(photonTargets,remoteEvent.Name);
 				}
@@ -90,8 +91,8 @@ namespace HutongGames.PlayMaker.Actions
 					return;
 				}
 				
-				if (! stringData.IsNone && stringData.Value != ""){
-					_goProxy.PhotonRpcSendFsmEventWithString(_photonTargets,remoteEvent.Name,stringData.Value);
+				if (data.Length>0 ){
+					_goProxy.PhotonRpcSendFsmEventWithData(_photonTargets,remoteEvent.Name,data);
 				}else{
 					_goProxy.PhotonRpcSendFsmEvent(photonTargets,remoteEvent.Name);
 				}

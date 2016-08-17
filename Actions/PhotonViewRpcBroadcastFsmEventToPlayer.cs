@@ -25,7 +25,6 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmEvent remoteEvent;
 		
 		[Tooltip("Optionnal string data ( will be injected in the Event data. Use 'get Event Info' action to retrieve it)")]
-		[UIHint(UIHint.FsmString)]
 		public FsmString stringData;
 		
 		
@@ -98,7 +97,7 @@ namespace HutongGames.PlayMaker.Actions
 					return _player;
 				}
 			}
-			return new PhotonPlayer(true,-1,"invalid");;
+			return new PhotonPlayer(true,-1,"invalid");
 		}
 		
 		

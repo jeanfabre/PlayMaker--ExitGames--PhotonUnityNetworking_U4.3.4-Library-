@@ -36,9 +36,9 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			
 			RoomOptions _options = new RoomOptions();
-			_options.maxPlayers =  (byte)maxNumberOfPLayers.Value;
-			_options.isVisible = isVisible.Value;
-			_options.isOpen = isOpen.Value;
+			_options.MaxPlayers =  (byte)maxNumberOfPLayers.Value;
+			_options.IsVisible = isVisible.Value;
+			_options.IsOpen = isOpen.Value;
 		
 			if (string.IsNullOrEmpty(roomName.Value))
 			{

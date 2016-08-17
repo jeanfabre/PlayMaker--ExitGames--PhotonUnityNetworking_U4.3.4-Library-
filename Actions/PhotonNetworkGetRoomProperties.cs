@@ -38,7 +38,16 @@ namespace HutongGames.PlayMaker.Actions
 		[UIHint(UIHint.Variable)]
 		[Tooltip("Defines if the room is listed in its lobby.")]
 		public FsmBool visible;
-		
+
+		[UIHint(UIHint.Variable)]
+		[Tooltip("Defines if the room autocleanup is enabled")]
+		public FsmBool autoCleanUp;
+
+		[UIHint(UIHint.Variable)]
+		[Tooltip("Defines the expected users in this room.")]
+		[ArrayEditor(VariableType.String)]
+		public FsmArray expectedUsers;
+
 		[Tooltip("Custom Properties you have assigned to this room.")]
 		[CompoundArray("Room Custom Properties", "property", "value")]
 		public FsmString[] customPropertyKeys;
@@ -70,7 +79,11 @@ namespace HutongGames.PlayMaker.Actions
 			visible = null;
 			
 			playerCount = 0;
-			
+
+			autoCleanUp = null;
+
+			expectedUsers = null;
+
 			isInRoom = null;
 			isInRoomEvent = null;
 			isNotInRoomEvent = null;
@@ -103,7 +116,6 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			Room _room = PhotonNetwork.room;
 			bool _isInRoom = _room!=null;
-			
 			isInRoom.Value = _isInRoom;
 			
 			if (_isInRoom )
@@ -127,7 +139,9 @@ namespace HutongGames.PlayMaker.Actions
 			open.Value = _room.open;
 			visible.Value = _room.visible;
 			playerCount.Value = _room.playerCount;
-			
+			autoCleanUp.Value = _room.autoCleanUp;
+			expectedUsers.Values = _room.expectedUsers;
+
 			// get the custom properties
 			int i = 0;
 			foreach(FsmString key in customPropertyKeys)

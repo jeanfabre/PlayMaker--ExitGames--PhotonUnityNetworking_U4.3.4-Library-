@@ -24,6 +24,8 @@ public class PlayMakerPhotonGameObjectProxy : Photon.MonoBehaviour {
 	/// </summary>
 	bool debug = true;
 	bool LogMessageInfo = true;
+
+
 	/// <summary>
 	/// The fsm proxy used to send the "OnPhotonInstantiate" event to Fsm.
 	/// </summary>
@@ -184,6 +186,41 @@ public class PlayMakerPhotonGameObjectProxy : Photon.MonoBehaviour {
 		
 		photonView.RPC("rpc_s", target, globalEventName, stringData);// method name used to be too long :  "RPC_FsmPhotonRpcBroadcastFsmEventWithString"
 	}
+
+	/// <summary>
+	/// Function typically called from the action "PhotonViewRpcBroadcastFsmEventWithData" that use RPC to send information about the event to Send to self over the network
+	/// </summary>
+	/// <param name='target'>
+	/// Photon Target.
+	/// </param>
+	/// <param name='globalEventName'>
+	/// Global Fsm event name to broadcast using the photon target rule.
+	/// </param>	
+	/// <param name='FsmVar'>
+	/// FsmVar array data to pass with this event. WARNING: this is not supposed to be (nor efficient) a way to synchronize data. This is simply to comply with
+	/// the ability for FsmEvent to include data.
+	/// </param>
+	public void PhotonRpcSendFsmEventWithData(PhotonTargets target,string globalEventName,FsmVar[] data)
+	{
+		if (LogMessageInfo)
+		{
+			Debug.Log("RPC to send "+data.Length+" data with global Fsm Event:"+globalEventName+" to self, with network target:"+target.ToString());	
+		}
+
+	
+		object[] _data = new object[data.Length];
+		int i = 0;
+		foreach(FsmVar _var in data)
+		{
+			_var.UpdateValue();
+			_data[i] = _var.GetValue();
+				i++;
+		}
+
+		photonView.RPC("rpc_d", target, globalEventName,_data);
+	}
+
+
 	#endregion
 	
 	#region Photon RPC TARGETS FUNCTIONS
@@ -275,8 +312,53 @@ public class PlayMakerPhotonGameObjectProxy : Photon.MonoBehaviour {
 		// send the event
 		fsmProxy.Fsm.Event(eventTarget,fsmEvent.Name); // TOFIX: doesn't work if using simply fsmEvent
 	}
+
+	public static object[] lastrpc_d_data;
+
+	/// <summary>
+	/// RPC CALL. The paired rpc called triggered by PhotonRpcBroacastFsmEventWithString ( either by player or target)
+	/// this will broadcast to All Fsm a global Fsm Event.
+	/// The sender properties is accessible using the action "PhotonViewGetLastMessagePLayerProperties"
+	/// </summary>
+	/// <param name='globalEventName'>
+	/// Global Fsm event name.
+	/// </param>
+	/// <param name='info'>
+	/// Info.
+	/// </param>
+	[PunRPC]
+	void rpc_d(string globalEventName,object[] data,PhotonMessageInfo info)// method name used to be too long : RPC_FsmPhotonRpcBroadcastFsmEventWithData
+	{
+		if (LogMessageInfo)
+		{
+			Debug.Log(info.sender.name+" sent RPC with "+data.Length+" data variables from Fsm Event:"+globalEventName);	
+		}
+
+		lastrpc_d_data = data;
+
+		// set the target to be this gameObject.
+		FsmOwnerDefault goTarget = new FsmOwnerDefault();
+		goTarget.GameObject = new FsmGameObject();
+		goTarget.GameObject.Value = this.gameObject;
+		goTarget.OwnerOption = OwnerDefaultOption.SpecifyGameObject;
+		
+		// send the event to this gameObject and all its children
+		FsmEventTarget eventTarget = new FsmEventTarget();
+		eventTarget.excludeSelf = false;
+		eventTarget.target = FsmEventTarget.EventTarget.GameObject;
+		eventTarget.gameObject = goTarget;
+		eventTarget.sendToChildren = true;
+		
+		// create the event.
+		FsmEvent fsmEvent = new FsmEvent(globalEventName);
+		
+		// send the event
+		fsmProxy.Fsm.Event(eventTarget,fsmEvent.Name); // TOFIX: doesn't work if using simply fsmEvent
+	}
 	
 	#endregion
+
+
 	
 	
 }

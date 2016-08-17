@@ -33,7 +33,6 @@ namespace HutongGames.PlayMaker.Actions
 		[CompoundArray("Custom Properties", "property", "value")]
 		public FsmString[] customPropertyKeys;
 		[Tooltip("Values related to the properties")]
-		[UIHint(UIHint.Variable)]
 		public FsmVar[] customPropertiesValues;
 		
 		
@@ -95,7 +94,7 @@ namespace HutongGames.PlayMaker.Actions
 					_mode = MatchmakingMode.SerialMatching;
 				}
 				
-				PhotonNetwork.JoinRandomRoom(_prop,(byte)_maxPlayer,_mode,null,sqlLobbyFilter.Value);
+				PhotonNetwork.JoinRandomRoom(_prop,(byte)_maxPlayer,_mode,TypedLobby.Default,sqlLobbyFilter.Value);
 			}else{
 					PhotonNetwork.JoinRandomRoom();
 			}

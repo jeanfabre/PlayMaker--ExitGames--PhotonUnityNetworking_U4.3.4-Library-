@@ -17,16 +17,32 @@ namespace HutongGames.PlayMaker.Actions
 		
 		[Tooltip("Is the room open")]
 		public FsmBool isOpen;
+
+		[Tooltip("Player Time to Live. If a client disconnects, this actor is inactive first and removed after this timeout. In milliseconds.")]
+		public FsmInt playerTimeToLive;
 			
 		[Tooltip("Max numbers of players for this room.")]
 		public FsmInt maxNumberOfPLayers;
-		
-		[ActionSection("Custom Properties")]
+
 		
 		[Tooltip("Clean up on room leaving. Leave to 'none' to use the default value")]
 		public FsmBool cleanupCacheOnLeave;
+
+		// read only
+		//[Tooltip("Tells the server to skip room events for joining and leaving players")]
+		//public FsmBool suppressRoomEvents;
+
+		[Tooltip("Defines if the UserIds of players get 'published' in the room. Useful for FindFriends, if players want to play another game together.")]
+		public FsmBool publishUserId;
+
+
+		[Tooltip("Informs the server of the expected plugin setup.")]
+		public FsmString[] plugins;
+
+
+		[ActionSection("Custom Properties")]
+	
 			
-		
 		[CompoundArray("Count", "Key", "Value")]
 		[Tooltip("The Custom Property to set")]
 		public FsmString[] customPropertyKey;
@@ -37,15 +53,25 @@ namespace HutongGames.PlayMaker.Actions
 		[ActionSection("Lobby custom Properties")]
 		[Tooltip("Properties listed in the lobby.")]
 		public FsmString[] lobbyCustomProperties;
-		
+
+
+
 		public override void Reset()
 		{
 			roomName  = new FsmString() {UseVariable=true};
 			isVisible = true;
 			isOpen = true;
-			
+
+			playerTimeToLive  = new FsmInt() {UseVariable=true};
+
+		//	suppressRoomEvents = new FsmBool() {UseVariable=true};
+
+			publishUserId = new FsmBool() {UseVariable=true};
+
+			plugins = null;
+
 			cleanupCacheOnLeave = new FsmBool() {UseVariable=true};
-			maxNumberOfPLayers = 100;
+			maxNumberOfPLayers = 0;
 			customPropertyKey = null;
 			customPropertyValue = null;
 			lobbyCustomProperties = null;
@@ -82,14 +108,46 @@ namespace HutongGames.PlayMaker.Actions
 			}
 
 			RoomOptions _options = new RoomOptions();
-			_options.maxPlayers =  (byte)maxNumberOfPLayers.Value;
-			_options.isVisible = isVisible.Value;
-			_options.isOpen = isOpen.Value;
-			_options.customRoomProperties = _props;
-			_options.customRoomPropertiesForLobby = lobbyProps;
+			_options.MaxPlayers =  (byte)maxNumberOfPLayers.Value;
+			_options.IsVisible = isVisible.Value;
+			_options.IsOpen = isOpen.Value;
+			_options.CustomRoomProperties = _props;
+			_options.CustomRoomPropertiesForLobby = lobbyProps;
+
+			if (!playerTimeToLive.IsNone)
+			{
+				_options.PlayerTtl = playerTimeToLive.Value;
+			}
+
 			if (!cleanupCacheOnLeave.IsNone)
 			{
-			_options.cleanupCacheOnLeave = cleanupCacheOnLeave.Value;
+				_options.CleanupCacheOnLeave = cleanupCacheOnLeave.Value;
+			}
+
+			/*
+			if (!suppressRoomEvents.IsNone)
+			{
+				_options.SuppressRoomEvents = suppressRoomEvents.Value;
+			}
+*/
+			if (!publishUserId.IsNone)
+			{
+				_options.PublishUserId = publishUserId.Value;
+			}
+
+
+			if (plugins.Length>0)
+			{
+				string[] _plugins = new string[plugins.Length];
+
+				int k = 0;
+				foreach(FsmString _fsmstring in plugins)
+				{
+					_plugins[k] = _fsmstring.Value;
+					k++;
+				}
+
+				_options.Plugins = _plugins;
 			}
 
 			PhotonNetwork.CreateRoom(_roomName,_options,TypedLobby.Default);

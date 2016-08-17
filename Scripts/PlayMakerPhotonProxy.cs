@@ -65,7 +65,8 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 	/// The last disconnection or connection failure cause
 	/// </summary>
 	public DisconnectCause lastDisconnectCause;
-	
+
+
 	/// <summary>
 	/// The last authentication failed debug message. Message is reseted when authentication is triggered again.
 	/// </summary>
@@ -437,7 +438,8 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 	}
 
 	#endregion
-	
+
+
 	#region Photon RPC TARGETS
 		
 	/// <summary>
@@ -481,6 +483,8 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 		
 		photonView.RPC("rpc_s", target, globalEventName, stringData);// method name used to be too long :  "RPC_FsmPhotonRpcBroadcastFsmEventWithString"
 	}
+
+
 	#endregion
 	
 	#region Photon RPC TARGETS FUNCTIONS
@@ -936,7 +940,23 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 
 	#endregion
 	
+
+	#region OwnerShip Request
 	
+	public void OnOwnershipRequest(object[] viewAndPlayer)
+	{
+		PhotonView view = viewAndPlayer[0] as PhotonView;
+		PhotonPlayer requestingPlayer = viewAndPlayer[1] as PhotonPlayer;
+
+		if (debug) {
+			Debug.Log("OnOwnershipRequest(): Player " + requestingPlayer + " requests ownership of: " + view + ".");
+		}
+
+		view.TransferOwnership(requestingPlayer.ID);
+	}
+	
+	#endregion
+
 	#region utils
 	
 	// this is a fix to the regular BroadCast that for some reason delivers events too late when player joins a room

@@ -62,7 +62,6 @@ namespace HutongGames.PlayMaker.Actions
 			}
 			bool _isMine = _networkView.isMine;
 			isMine.Value = _isMine;
-			
 			if (_isMine )
 			{
 				if (isMineEvent!=null)

@@ -1,5 +1,20 @@
 #PlayMaker PUN Change Log
 
+###1.74
+**Release**  
+- 11/08/2016  
+
+**Update**  
+- Updated to PUN 1.74  
+
+**Fix**  
+- Pun obsolete properties fixed
+
+
+**New** 
+- PlayerTtl room option exposed
+
+
 ###1.71
 **Release**  
 - 22/06/2016  
