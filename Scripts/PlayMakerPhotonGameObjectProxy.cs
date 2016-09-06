@@ -82,7 +82,7 @@ public class PlayMakerPhotonGameObjectProxy : Photon.MonoBehaviour {
 	void OnPhotonInstantiate(PhotonMessageInfo info)
 	{
 		if (debug) {
-			if (info !=null)
+			if (! info.Equals(new PhotonMessageInfo()) )
 			{
 				if (info.sender!=null)
 				{

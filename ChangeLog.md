@@ -1,5 +1,20 @@
 #PlayMaker PUN Change Log
 
+###1.75
+**Release**  
+- 06/08/2016  
+
+**Update**  
+- Updated to PUN 1.75  
+
+**Fix**  
+- Pun api changes for `photonMessageInfo`
+
+**New**   
+- Action `PhotonNetworkGetRoomListProperties`  
+- Action `PhotonNetworkGetPlayersProperties`  
+- Action `PhotonViewRequestOwnerShip`  
+
 ###1.74
 **Release**  
 - 11/08/2016  
@@ -10,8 +25,7 @@
 **Fix**  
 - Pun obsolete properties fixed
 
-
-**New** 
+**New**  
 - PlayerTtl room option exposed
 
 

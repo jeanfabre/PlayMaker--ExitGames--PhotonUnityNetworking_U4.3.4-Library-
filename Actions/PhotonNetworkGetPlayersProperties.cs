@@ -14,7 +14,6 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("If true, list only other players.")]
 		public FsmBool otherPLayerOnly;
 
-
 		[ActionSection("Builtin Properties")]
 		[Tooltip("All players' name")]
 		[UIHint(UIHint.Variable)]
@@ -47,8 +46,8 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmArray isMasterClients;
 
 
-		[Tooltip("Custom Properties you have assigned to this player.")]
-		[CompoundArray("player Custom Properties", "property", "value")]
+		[Tooltip("Custom Properties you have assigned to players.")]
+		[CompoundArray("Players Custom Properties", "property", "value")]
 		public FsmString[] customPropertyKeys;
 		[UIHint(UIHint.Variable)]
 		public FsmArray[] customPropertiesValues;
@@ -65,6 +64,10 @@ namespace HutongGames.PlayMaker.Actions
 			isInactives = new FsmArray() {UseVariable=true};
 			isLocals = new FsmArray() {UseVariable=true};
 			isMasterClients = new FsmArray() {UseVariable=true};
+
+			customPropertyKeys = null;
+			customPropertiesValues = null;
+
 		}
 		
 		public override void OnEnter()
@@ -83,11 +86,10 @@ namespace HutongGames.PlayMaker.Actions
 			if (!isLocals.IsNone) isLocals.Resize(players.Length);
 			if (!isMasterClients.IsNone) isMasterClients.Resize(players.Length);
 
-			int x = 0;
-			foreach(FsmString key in customPropertyKeys)
+
+			for(int x=0;x<customPropertiesValues.Length;x++)
 			{
 				if (! customPropertiesValues[x].IsNone) customPropertiesValues[x].Resize(players.Length);
-				x++;
 			}
 
 
@@ -126,13 +128,10 @@ namespace HutongGames.PlayMaker.Actions
 			if (!isLocals.IsNone)  isLocals.SaveChanges();
 			if (!isMasterClients.IsNone)  isMasterClients.SaveChanges();
 
-			x= 0;
-			foreach(FsmString key in customPropertyKeys)
+			for(int x=0;x<customPropertiesValues.Length;x++)
 			{
 				if (! customPropertiesValues[x].IsNone) customPropertiesValues[x].SaveChanges();
-				x++;
 			}
-
 
 		}
 		
