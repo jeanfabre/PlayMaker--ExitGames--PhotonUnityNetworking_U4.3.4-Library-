@@ -27,7 +27,7 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				PhotonNetwork.JoinOrCreateRoom(roomName.Value,new RoomOptions(),TypedLobby.Default);
 			}else{
-					PhotonNetwork.JoinRoom(roomName.Value);
+				PhotonNetwork.JoinRoom(roomName.Value);
 			}
 		
 			

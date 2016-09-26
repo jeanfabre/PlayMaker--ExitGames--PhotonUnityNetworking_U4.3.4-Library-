@@ -1,5 +1,19 @@
 #PlayMaker PUN Change Log
 
+###1.76
+**Release**  
+- n/a
+
+**Update**  
+- Updated to PUN 1.76  
+
+**New**   
+- Action `PhotonNetworkCloseConnection`  
+- Action `PhotonNetworkLeaveLobby`  
+- Action `PhotonNetworkReconnect`  
+- Action `PhotonNetworkReconnectAndReJoin`   
+- Action `PhotonNetworkReJoinRoom`  
+
 ###1.75
 **Release**  
 - 06/08/2016  
@@ -27,7 +41,6 @@
 
 **New**  
 - PlayerTtl room option exposed
-
 
 ###1.71
 **Release**  
