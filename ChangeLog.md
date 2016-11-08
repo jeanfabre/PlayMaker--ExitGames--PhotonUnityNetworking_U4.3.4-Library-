@@ -1,11 +1,11 @@
 #PlayMaker PUN Change Log
 
-###1.76
+###1.78
 **Release**  
-- n/a
+- 08/11/2016
 
 **Update**  
-- Updated to PUN 1.76  
+- Updated to PUN 1.78  
 
 **New**   
 - Action `PhotonNetworkCloseConnection`  
