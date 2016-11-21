@@ -2,6 +2,16 @@
 
 ###1.78
 **Release**  
+- 21/11/2016
+
+**Update**  
+- Updated to PUN 1.79  
+
+**Fix**   
+- Editor fix pre Unity 5 warning for punPlus detection  
+
+###1.78
+**Release**  
 - 08/11/2016
 
 **Update**  
