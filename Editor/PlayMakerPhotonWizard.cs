@@ -6,6 +6,8 @@ using System.IO;
 using HutongGames.PlayMakerEditor;
 
 
+#pragma warning disable 0414
+
 [InitializeOnLoad]
 public class PlayMakerPhotonWizard : PhotonEditor
 {
