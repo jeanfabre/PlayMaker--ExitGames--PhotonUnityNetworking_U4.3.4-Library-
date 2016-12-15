@@ -1,6 +1,13 @@
 #PlayMaker PUN Change Log
 
-###1.78
+###1.78.2
+**Release**  
+- 15/12/2016 
+
+**New**   
+- Action `PhotonNetworkConnectToRegion`  
+
+###1.78.1
 **Release**  
 - 21/11/2016
 
