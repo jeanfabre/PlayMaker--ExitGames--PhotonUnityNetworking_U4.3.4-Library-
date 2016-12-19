@@ -154,13 +154,6 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 			bool ok = false;
 			foreach(PhotonView photonView in allPhotonViews)
 			{
-
-				if 	(photonView.observed == fsm)
-				{
-					ok = true;
-					break;
-				}
-
 				foreach(Component _comp in photonView.ObservedComponents )
 				{
 					if (_comp== fsm)
@@ -185,7 +178,7 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 		// now inject PlayMakerPhotonView where required.
 		foreach(PhotonView photonView in allPhotonViews)
 		{	
-			Debug.Log(" photon view observing : "+photonView.observed+" "+photonView.viewID);
+			//Debug.Log(" photon view observing : "+photonView.observed+" "+photonView.viewID);
 
 			int i = 0;
 			foreach(Component _comp in photonView.ObservedComponents)
@@ -353,7 +346,7 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 	}// HasFsmNetworkingSynchVariables
 	
 	
-	
+	/*
 	/// <summary>
 	/// Determines whether a PhotonView is observing the specified fsm.
 	/// </summary>
@@ -385,7 +378,8 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 		}
 		return null;
 	}// GetPhotonViewObservingFsm
-	
+	*/
+
 	#endregion
 
 	#region Photon RPC PLAYER

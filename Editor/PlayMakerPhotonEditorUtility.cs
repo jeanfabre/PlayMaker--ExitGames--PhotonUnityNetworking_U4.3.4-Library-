@@ -17,7 +17,7 @@ public class PlayMakerPhotonEditorUtility : Editor
 {
     const string PlayMakerPhotonMenuRoot = "PlayMaker/Addons/Photon Networking/";
 	
-    public const float supportedPUNVersion = 1.79f;
+    public const float supportedPUNVersion = 1.80f;
 
 	static string PlayMakerPhotonProxyName = "PlayMaker Photon Proxy";
 	
@@ -144,8 +144,9 @@ public class PlayMakerPhotonEditorUtility : Editor
 			
 			photonView.synchronization = ViewSynchronization.ReliableDeltaCompressed;
 			
-			photonView.observed = fsm;
-			
+			photonView.ObservedComponents = new List<Component>();
+			photonView.ObservedComponents.Add(fsm);
+
 			if (_go.GetComponent<PlayMakerPhotonGameObjectProxy>() ==null)
 			{
 				_go.AddComponent<PlayMakerPhotonGameObjectProxy>();
