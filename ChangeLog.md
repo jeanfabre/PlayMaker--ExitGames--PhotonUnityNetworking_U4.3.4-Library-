@@ -1,5 +1,16 @@
 #PlayMaker PUN Change Log
 
+###1.80.2
+**Release**  
+- 11/01/2017
+
+**Update**  
+- demo worker with randomjoin custom prop match test
+
+**Fix**
+- PhotonNetworkRandomJoin custom props
+
+
 ###1.80.1
 **Release**  
 - 11/01/2017
