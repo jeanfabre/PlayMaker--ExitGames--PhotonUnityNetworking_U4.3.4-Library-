@@ -150,6 +150,8 @@ namespace HutongGames.PlayMaker.Actions
 				_options.Plugins = _plugins;
 			}
 
+
+
 			PhotonNetwork.CreateRoom(_roomName,_options,TypedLobby.Default);
 			
 			

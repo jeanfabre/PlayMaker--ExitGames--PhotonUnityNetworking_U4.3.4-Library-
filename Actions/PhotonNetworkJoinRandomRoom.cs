@@ -64,8 +64,17 @@ namespace HutongGames.PlayMaker.Actions
 			int _maxPlayer = 0;
 			
 			
-			ExitGames.Client.Photon.Hashtable _prop = new ExitGames.Client.Photon.Hashtable();
-			
+			ExitGames.Client.Photon.Hashtable _props = new ExitGames.Client.Photon.Hashtable();
+
+			int i = 0;
+			foreach(FsmString _prop in customPropertyKeys)
+			{
+				withExpections = true;
+				_props[_prop.Value] =  PlayMakerUtils.GetValueFromFsmVar(this.Fsm,customPropertiesValues[i]);
+				i++;
+			}
+
+
 			if ( (! maxPlayer.IsNone) || maxPlayer.Value>0)
 			{
 				_maxPlayer = maxPlayer.Value;
@@ -93,8 +102,9 @@ namespace HutongGames.PlayMaker.Actions
 				{
 					_mode = MatchmakingMode.SerialMatching;
 				}
-				
-				PhotonNetwork.JoinRandomRoom(_prop,(byte)_maxPlayer,_mode,TypedLobby.Default,sqlLobbyFilter.Value);
+
+				Debug.Log(_props.ToStringFull());
+				PhotonNetwork.JoinRandomRoom(_props,(byte)_maxPlayer,_mode,TypedLobby.Default,sqlLobbyFilter.Value);
 			}else{
 					PhotonNetwork.JoinRandomRoom();
 			}
