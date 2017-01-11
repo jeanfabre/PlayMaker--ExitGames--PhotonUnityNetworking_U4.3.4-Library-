@@ -526,7 +526,7 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 	{
 		if (LogMessageInfo)
 		{
-			Debug.Log(info.sender.name+" sent RPC string:"+stringData+" from Fsm Event:"+globalEventName);	
+			Debug.Log(info.sender.NickName+" sent RPC string:"+stringData+" from Fsm Event:"+globalEventName);	
 		}
 		
 		lastMessagePhotonPlayer = info.sender;

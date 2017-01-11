@@ -128,19 +128,19 @@ namespace HutongGames.PlayMaker.Actions
 			}
 			
 			_player = players[nextPlayerIndex];
-			
+
 			// we get the player properties
 			playerID.Value	= _player.ID;
-			playerIsLocal.Value =	_player.isLocal;
-			playerName.Value = _player.name;
-			playerIsMasterClient = _player.isMasterClient;
+			playerIsLocal.Value =	_player.IsLocal;
+			playerName.Value = _player.NickName;
+			playerIsMasterClient = _player.IsMasterClient;
 			
 			
 			// get the custom properties
 			int i = 0;
 			foreach(FsmString key in customPropertyKeys)
 			{
-				PlayMakerUtils.ApplyValueToFsmVar(this.Fsm,customPropertiesValues[i],_player.customProperties[key.Value]);
+				PlayMakerUtils.ApplyValueToFsmVar(this.Fsm,customPropertiesValues[i],_player.CustomProperties[key.Value]);
 				i++;
 			}
 			

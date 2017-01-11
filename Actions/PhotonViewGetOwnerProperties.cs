@@ -108,19 +108,19 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				return false;
 			}
-			
-			name.Value = _player.name;
+
+			name.Value = _player.NickName;
 			ID.Value   = _player.ID;
-			isLocal.Value = _player.isLocal;
-			isMasterClient.Value = _player.isMasterClient;
+			isLocal.Value = _player.IsLocal;
+			isMasterClient.Value = _player.IsMasterClient;
 			
 			// get the custom properties
 			int i = 0;
 			foreach(FsmString key in customPropertyKeys)
 			{
-				if (_player.customProperties.ContainsKey(key.Value))
+				if (_player.CustomProperties.ContainsKey(key.Value))
 				{
-					PlayMakerUtils.ApplyValueToFsmVar(this.Fsm,customPropertiesValues[i],_player.customProperties[key.Value]);
+					PlayMakerUtils.ApplyValueToFsmVar(this.Fsm,customPropertiesValues[i],_player.CustomProperties[key.Value]);
 				}else{
 					return false;
 				}

@@ -1,5 +1,15 @@
 #PlayMaker PUN Change Log
 
+###1.80.1
+**Release**  
+- 11/01/2017
+
+**Update**  
+- cleaned up all obsolete warnings for PUN 1.80 
+
+**Fix**
+- PhotonNetworkSetAuthenticationValues action enum 
+
 ###1.80
 **Release**  
 - 19/12/2016

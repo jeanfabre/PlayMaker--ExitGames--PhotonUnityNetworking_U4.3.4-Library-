@@ -93,7 +93,7 @@ namespace HutongGames.PlayMaker.Actions
 			
 			foreach(PhotonPlayer _player in PhotonNetwork.otherPlayers)
 			{
-				if ( _name.Equals(_player.name))
+				if ( _name.Equals(_player.NickName))
 				{
 					return _player;
 				}

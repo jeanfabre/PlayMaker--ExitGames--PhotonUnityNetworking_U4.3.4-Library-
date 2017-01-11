@@ -86,7 +86,7 @@ public class PlayMakerPhotonGameObjectProxy : Photon.MonoBehaviour {
 			{
 				if (info.sender!=null)
 				{
-					Debug.Log ("PLayMaker Photon proxy:OnPhotonInstantiate "+info.sender.name);
+					Debug.Log ("PLayMaker Photon proxy:OnPhotonInstantiate "+info.sender.NickName);
 				}else{
 					Debug.Log ("PLayMaker Photon proxy:OnPhotonInstantiate with no sender info");
 				}
@@ -286,7 +286,7 @@ public class PlayMakerPhotonGameObjectProxy : Photon.MonoBehaviour {
 	{
 		if (LogMessageInfo)
 		{
-			Debug.Log(info.sender.name+" sent RPC string:"+stringData+" from Fsm Event:"+globalEventName);	
+			Debug.Log(info.sender.NickName+" sent RPC string:"+stringData+" from Fsm Event:"+globalEventName);	
 		}
 		
 		//lastMessagePhotonPlayer = info.sender;
@@ -331,7 +331,7 @@ public class PlayMakerPhotonGameObjectProxy : Photon.MonoBehaviour {
 	{
 		if (LogMessageInfo)
 		{
-			Debug.Log(info.sender.name+" sent RPC with "+data.Length+" data variables from Fsm Event:"+globalEventName);	
+			Debug.Log(info.sender.NickName+" sent RPC with "+data.Length+" data variables from Fsm Event:"+globalEventName);	
 		}
 
 		lastrpc_d_data = data;

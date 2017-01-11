@@ -87,17 +87,17 @@ namespace HutongGames.PlayMaker.Actions
 			foreach (RoomInfo room in rooms)
 			{
 
-				if (!names.IsNone) names.Set(i,room.name);
-				if (!playerCounts.IsNone) playerCounts.Set(i,room.playerCount);
-				if (!maxPlayers.IsNone) maxPlayers.Set(i,room.maxPlayers);
+				if (!names.IsNone) names.Set(i,room.Name);
+				if (!playerCounts.IsNone) playerCounts.Set(i,room.PlayerCount);
+				if (!maxPlayers.IsNone) maxPlayers.Set(i,room.MaxPlayers);
 
 				// get the custom properties
 				int k = 0;
 				foreach(FsmString key in customPropertyKeys)
 				{
-					if (room.customProperties.ContainsKey(key.Value) && ! customPropertiesValues[k].IsNone)
+					if (room.CustomProperties.ContainsKey(key.Value) && ! customPropertiesValues[k].IsNone)
 					{
-						customPropertiesValues[k].Set(i,room.customProperties[key.Value]);
+						customPropertiesValues[k].Set(i,room.CustomProperties[key.Value]);
 					}
 					k++;
 				}

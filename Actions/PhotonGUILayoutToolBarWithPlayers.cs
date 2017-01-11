@@ -70,7 +70,7 @@ namespace HutongGames.PlayMaker.Actions
 			
 			foreach (PhotonPlayer player in players)
             {
-				playerNames[i] = player.name;
+				playerNames[i] = player.NickName;
 				i++;
 			}
 		

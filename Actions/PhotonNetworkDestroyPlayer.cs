@@ -36,7 +36,7 @@ namespace HutongGames.PlayMaker.Actions
 			}else{
 				foreach(PhotonPlayer _player in PhotonNetwork.otherPlayers)
 				{
-					if (string.Equals(_player.name,playerName.Value))
+					if (string.Equals(_player.NickName,playerName.Value))
 					{
 						PhotonNetwork.DestroyPlayerObjects(_player);
 						return;

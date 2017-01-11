@@ -134,21 +134,21 @@ namespace HutongGames.PlayMaker.Actions
 			}
 
 			// we get the room properties
-			RoomName.Value = _room.name;
-			maxPlayers.Value = _room.maxPlayers;
-			open.Value = _room.open;
-			visible.Value = _room.visible;
-			playerCount.Value = _room.playerCount;
-			autoCleanUp.Value = _room.autoCleanUp;
-			expectedUsers.Values = _room.expectedUsers;
+			RoomName.Value = _room.Name;
+			maxPlayers.Value = _room.MaxPlayers;
+			open.Value = _room.IsOpen;
+			visible.Value = _room.IsVisible;
+			playerCount.Value = _room.PlayerCount;
+			autoCleanUp.Value = _room.AutoCleanUp;
+			expectedUsers.Values = _room.ExpectedUsers;
 
 			// get the custom properties
 			int i = 0;
 			foreach(FsmString key in customPropertyKeys)
 			{
-				if (_room.customProperties.ContainsKey(key.Value))
+				if (_room.CustomProperties.ContainsKey(key.Value))
 				{
-					PlayMakerUtils.ApplyValueToFsmVar(this.Fsm,customPropertiesValues[i],_room.customProperties[key.Value]);
+					PlayMakerUtils.ApplyValueToFsmVar(this.Fsm,customPropertiesValues[i],_room.CustomProperties[key.Value]);
 				}else{
 					return false;
 				}

@@ -11,8 +11,11 @@ namespace HutongGames.PlayMaker.Actions
 	public class PhotonNetworkSetAuthenticationValues : FsmStateAction
 	{
 		[Tooltip("The type of custom authentication provider that should be used. Set to 'None' to turn off.")]
-		public CustomAuthenticationType authenticationType;
-		
+		//public CustomAuthenticationType authenticationType;
+
+		[ObjectType(typeof(CustomAuthenticationType))]
+		public FsmEnum authenticationType;
+
 		[Tooltip("Name or other end-user ID used in custom authentication service.")]
 		[RequiredField]
 		public FsmString authName;
@@ -36,7 +39,7 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			PhotonNetwork.AuthValues = new AuthenticationValues();
 			
-			PhotonNetwork.AuthValues.AuthType = authenticationType;
+			PhotonNetwork.AuthValues.AuthType = (CustomAuthenticationType)authenticationType.Value;
 
 			PhotonNetwork.AuthValues.AddAuthParameter("username", authName.Value);
 			PhotonNetwork.AuthValues.AddAuthParameter("token", authToken.Value);

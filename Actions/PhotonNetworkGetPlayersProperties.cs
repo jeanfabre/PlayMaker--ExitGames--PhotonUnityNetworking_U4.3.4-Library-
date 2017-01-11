@@ -98,21 +98,21 @@ namespace HutongGames.PlayMaker.Actions
 			foreach (PhotonPlayer player in players)
 			{
 
-				if (!names.IsNone) names.Set(i,player.name);
-				if (!userIds.IsNone) userIds.Set(i,player.userId);
+				if (!names.IsNone) names.Set(i,player.NickName);
+				if (!userIds.IsNone) userIds.Set(i,player.UserId);
 				if (!ids.IsNone) ids.Set(i,player.ID);
-				if (!isInactives.IsNone) isInactives.Set(i,player.isInactive);
-				if (!isLocals.IsNone) isLocals.Set(i,player.isLocal);
-				if (!isMasterClients.IsNone) isMasterClients.Set(i,player.isMasterClient);
+				if (!isInactives.IsNone) isInactives.Set(i,player.IsInactive);
+				if (!isLocals.IsNone) isLocals.Set(i,player.IsLocal);
+				if (!isMasterClients.IsNone) isMasterClients.Set(i,player.IsMasterClient);
 
 
 				// get the custom properties
 				int k = 0;
 				foreach(FsmString key in customPropertyKeys)
 				{
-					if (player.customProperties.ContainsKey(key.Value) && ! customPropertiesValues[k].IsNone)
+					if (player.CustomProperties.ContainsKey(key.Value) && ! customPropertiesValues[k].IsNone)
 					{
-						customPropertiesValues[k].Set(i,player.customProperties[key.Value]);
+						customPropertiesValues[k].Set(i,player.CustomProperties[key.Value]);
 					}
 					k++;
 				}

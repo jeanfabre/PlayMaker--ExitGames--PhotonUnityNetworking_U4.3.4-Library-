@@ -68,10 +68,10 @@ namespace HutongGames.PlayMaker.Actions
 			
 			foreach (RoomInfo _room in _rooms)
             {
-				roomNames[i] = _room.name;
+				roomNames[i] = _room.Name;
 				if (_details)
 				{
-					roomNames[i] += " ("+_room.playerCount+"/"+_room.maxPlayers+")";
+					roomNames[i] += " ("+_room.PlayerCount+"/"+_room.MaxPlayers+")";
 				}
 				i++;
 			}
@@ -79,12 +79,12 @@ namespace HutongGames.PlayMaker.Actions
 			int _selection = GUILayout.Toolbar(selectedRoomIndex.Value, roomNames, style.Value, LayoutOptions);
 			
 			selectedRoomIndex.Value = _selection;
-			selectedRoomName.Value = _rooms[_selection].name;
+			selectedRoomName.Value = _rooms[_selection].Name;
 			
 			if (GUI.changed)
 			{
 				Fsm.EventData.IntData = _selection;
-				Fsm.EventData.StringData = _rooms[_selection].name;
+				Fsm.EventData.StringData = _rooms[_selection].Name;
 				Fsm.Event(selectionEvent);
 				GUIUtility.ExitGUI();
 			
