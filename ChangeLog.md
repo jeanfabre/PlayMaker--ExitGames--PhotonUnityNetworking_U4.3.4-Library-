@@ -1,5 +1,12 @@
 #PlayMaker PUN Change Log
 
+###1.85
+**Release**  
+- 13/06/2017  
+
+**New**   
+- Action `PhotonNetworkGetOfflineMode`  
+
 ###1.80.2
 **Release**  
 - 11/01/2017
