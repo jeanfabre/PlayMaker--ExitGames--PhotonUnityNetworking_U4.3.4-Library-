@@ -11,7 +11,6 @@ namespace HutongGames.PlayMaker.Actions
 	public class PhotonNetworkGetPhotonPlayerRoomIndex : FsmStateAction
 	{
 	
-		[ActionSection("set up")]
 		[RequiredField]
 		[CheckForComponent(typeof(PhotonView))]
 		[Tooltip("The Game Object with the PhotonView attached to get the related PhotonPlayer.")]
@@ -34,6 +33,8 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnEnter()
 		{
+			_getNetworkView();
+
 			getPlayerRoomIndex();
 
 			Finish();
