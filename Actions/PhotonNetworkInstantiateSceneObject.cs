@@ -92,7 +92,7 @@ namespace HutongGames.PlayMaker.Actions
 				}
 				
 	
-				GameObject newObject =	PhotonNetwork.InstantiateSceneObject(go.name, spawnPosition, Quaternion.Euler(spawnRotation), networkGroup.Value,null);
+				GameObject newObject =	PhotonNetwork.InstantiateSceneObject(go.name, spawnPosition, Quaternion.Euler(spawnRotation), (byte)networkGroup.Value,null);
 				if(storeObject !=null)
 				{
 					storeObject.Value = newObject;

@@ -1,5 +1,16 @@
 #PlayMaker PUN Change Log
 
+###1.85.1
+**Release**  
+- 20/07/2017  
+
+**Fix**
+- Fixed `PhotonNetworkInstantiate`and `PhotonNetworkInstantiateSceneObject` with pun api change  
+
+**Fix**
+- room watcher on start needed next frame event for forwarding event properly  
+
+
 ###1.85
 **Release**  
 - 13/06/2017  
