@@ -1,5 +1,17 @@
 #PlayMaker PUN Change Log
 
+###1.85.2
+**Release**  
+- 31/08/2017  
+
+**New**  
+- Action `PhotonNetworkSetPlayerId` 
+- Action `PhotonNetworkCreateRoomAdvanced` exposes EmptyRoomTtl option  
+
+**Update**  
+- Updated PlayMaker Utils
+
+
 ###1.85.1
 **Release**  
 - 20/07/2017  
@@ -18,6 +30,9 @@
 **New**   
 - Action `PhotonNetworkGetOfflineMode`  
 
+**Update**  
+- Updated to PUN 1.85 
+- 
 ###1.80.2
 **Release**  
 - 11/01/2017
@@ -27,6 +42,7 @@
 
 **Fix**
 - PhotonNetworkRandomJoin custom props
+
 
 
 ###1.80.1

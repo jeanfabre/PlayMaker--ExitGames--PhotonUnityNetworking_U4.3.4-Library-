@@ -24,7 +24,9 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("Max numbers of players for this room.")]
 		public FsmInt maxNumberOfPLayers;
 
-		
+		[Tooltip("Time To Live (TTL) for a room when the last player leaves. Keeps room in memory for case a player re-joins soon. In milliseconds.")]
+		public FsmInt emptyRoomTimeToLive;
+
 		[Tooltip("Clean up on room leaving. Leave to 'none' to use the default value")]
 		public FsmBool cleanupCacheOnLeave;
 
@@ -63,6 +65,7 @@ namespace HutongGames.PlayMaker.Actions
 			isOpen = true;
 
 			playerTimeToLive  = new FsmInt() {UseVariable=true};
+			emptyRoomTimeToLive = new FsmInt() {UseVariable=true};
 
 		//	suppressRoomEvents = new FsmBool() {UseVariable=true};
 
@@ -117,6 +120,11 @@ namespace HutongGames.PlayMaker.Actions
 			if (!playerTimeToLive.IsNone)
 			{
 				_options.PlayerTtl = playerTimeToLive.Value;
+			}
+
+			if (!emptyRoomTimeToLive.IsNone)
+			{
+				_options.EmptyRoomTtl = emptyRoomTimeToLive.Value;
 			}
 
 			if (!cleanupCacheOnLeave.IsNone)
