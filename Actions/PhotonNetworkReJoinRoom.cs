@@ -2,6 +2,8 @@
 
 using UnityEngine;
 
+#pragma warning disable 168
+
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("Photon")]
@@ -45,7 +47,12 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnEnter()
 		{
-		 	bool _result = PhotonNetwork.ReJoinRoom(roomName.Value);
+			bool _result =  false;
+
+			if (PhotonNetwork.connectedAndReady && ! string.IsNullOrEmpty(roomName.Value))
+			{
+				_result = PhotonNetwork.ReJoinRoom(roomName.Value);
+			}
 			if (!result.IsNone)
 			{
 				result.Value = _result;
