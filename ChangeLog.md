@@ -1,5 +1,20 @@
 #PlayMaker PUN Change Log
 
+
+###1.87
+**Release**  
+- 23/10/2017  
+
+
+**Update**  
+- Updated Photon Library
+- Update ArrayMaker Library
+- Updated PlayMaker
+
+**Fix**
+- Demo needs to check next frame for room player count.
+
+
 ###1.85.2
 **Release**  
 - 31/08/2017  
