@@ -1,10 +1,18 @@
 #PlayMaker PUN Change Log
 
+###1.87.1
+**Release**  
+- 23/10/2017 
+
+**New**  
+- New `PhotonNetworkGetServerTime`  
+- New `PhotonNetworkGetServertimeStamp`  
+- New `PhotonNetworkSetMasterClient`  
+
 
 ###1.87
 **Release**  
 - 23/10/2017  
-
 
 **Update**  
 - Updated Photon Library

@@ -41,7 +41,7 @@ namespace HutongGames.PlayMaker.Actions
             {
 				result.Value = _result;
 			}
-			
+
 			Fsm.Event(_result ? willProceed : willNotProceed);
 			Finish();
 		}
