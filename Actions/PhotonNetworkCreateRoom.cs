@@ -20,6 +20,7 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmBool isOpen;
 			
 		[Tooltip("Max numbers of players for this room.")]
+		[TitleAttribute("Max Number Of Players")]
 		public FsmInt maxNumberOfPLayers;
 			
 		

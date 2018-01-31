@@ -22,6 +22,7 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmInt playerTimeToLive;
 			
 		[Tooltip("Max numbers of players for this room.")]
+		[TitleAttribute("Max Number Of Players")]
 		public FsmInt maxNumberOfPLayers;
 
 		[Tooltip("Time To Live (TTL) for a room when the last player leaves. Keeps room in memory for case a player re-joins soon. In milliseconds.")]

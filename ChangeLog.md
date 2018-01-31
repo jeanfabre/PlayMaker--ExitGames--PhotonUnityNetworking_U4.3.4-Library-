@@ -1,5 +1,16 @@
 #PlayMaker PUN Change Log
 
+###1.88.1
+**Release**  
+- 31/01/2018 
+
+**Fix**
+- `PhotonNetworkCreateRoom` and `PhotonNetworkCreateRoomAdvanced` fixed variable name display for Max number of Players.
+
+**Update**  
+- Updated ArrayMaker Library
+
+ 
 ###1.88
 **Release**  
 - 22/12/2017 
