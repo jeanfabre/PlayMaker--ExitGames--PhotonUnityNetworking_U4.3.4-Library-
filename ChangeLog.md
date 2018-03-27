@@ -1,5 +1,14 @@
 #PlayMaker PUN Change Log
 
+ 
+###1.89
+**Release**  
+- 27/03/2018 
+
+**Update**  
+- Updated Photon Library
+- Updated PlayMaker utils Library
+
 ###1.88.1
 **Release**  
 - 31/01/2018 
