@@ -5,6 +5,9 @@
 **Release**  
 - 27/03/2018 
 
+**New**  
+- Support for future version of PlayMaker, to keep the network synch check box for variables 
+
 **Update**  
 - Updated Photon Library
 - Updated PlayMaker utils Library
