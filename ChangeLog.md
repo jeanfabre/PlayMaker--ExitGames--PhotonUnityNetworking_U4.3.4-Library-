@@ -1,5 +1,12 @@
 #PlayMaker PUN Change Log
 
+###1.9.0.1
+**Release**  
+- 11/06/2018 
+
+**Update**  
+- Removed pun+ checks as it was ony for Unity 4x cycle.
+
 ###1.9
 **Release**  
 - 17/04/2018 

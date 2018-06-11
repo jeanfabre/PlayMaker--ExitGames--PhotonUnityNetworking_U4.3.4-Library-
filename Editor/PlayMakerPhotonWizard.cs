@@ -34,8 +34,6 @@ public class PlayMakerPhotonWizard : PhotonEditor
     {
 		WindowType = typeof(PlayMakerPhotonWizard);
 		RegisterOrigin = AccountService.Origin.Playmaker;
-		
-		CheckPunPlus();
 
         EditorApplication.hierarchyWindowChanged += EditorRefresh;
         EditorApplication.playmodeStateChanged += EditorRefresh;
@@ -47,17 +45,7 @@ public class PlayMakerPhotonWizard : PhotonEditor
 	{
 		shouldRefresh = true;
 	}
-	
-	private static bool isPunPlus;
-	
-	new private static void CheckPunPlus()
-    {
-        bool androidLibExists = File.Exists("Assets/Plugins/Android/libPhotonSocketPlugin.so");
-        bool iphoneLibExists = File.Exists("Assets/Plugins/IPhone/libPhotonSocketPlugin.so");
 
-        isPunPlus = androidLibExists || iphoneLibExists;
-    }
-	
     [MenuItem(PlayMakerPhotonMenuRoot, false)]
     protected static void photonMenuTemp()
     {
@@ -125,19 +113,6 @@ public class PlayMakerPhotonWizard : PhotonEditor
 			GUILayout.Label("WARNING: Photon Network version is newer: "+PhotonNetwork.versionPUN+". We only support version "+ PlayMakerPhotonEditorUtility.supportedPUNVersion+".\n It is recommended to only use the Photon Network assets provided with PlayMaker, as compatibility issue may be found otherwise.","box",GUILayout.ExpandWidth(true));
 			GUI.color = Color.white;
 		}
-
-#if ! UNITY_5
-		bool hasPro = UnityEditorInternal.InternalEditorUtility.HasAdvancedLicenseOnBuildTarget(EditorUserBuildSettings.activeBuildTarget);
-		if (!hasPro && ! isPunPlus)
-		{
-			GUI.color = PlayMakerPhotonEditorUtility.lightOrange;
-			string text = "WARNING: Photon requires "+EditorUserBuildSettings.activeBuildTarget+" Pro to make an "+EditorUserBuildSettings.activeBuildTarget+" build.";
-			text += "\n PUN+ allows you to publish without pro mobile license. \n Contact ExitGames to have access to PUN+" ;
-			GUILayout.Label(text,"box",GUILayout.ExpandWidth(true));
-		
-			GUI.color = Color.white;
-		}
-#endif		
 
         // custom layout (other parts can be overridden as well)
       //  GUILayout.Label("My Custom Editor");
