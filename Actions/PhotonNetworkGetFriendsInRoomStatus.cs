@@ -93,7 +93,7 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				if (_friendInfo.IsOnline && !_friendInfo.IsInRoom)
 				{
-					_result.Add(_friendInfo.Name);
+					_result.Add(_friendInfo.UserId);
 				}
 				
 			}
@@ -115,7 +115,7 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				if (_friendInfo.IsInRoom)
 				{
-					_result.Add(_friendInfo.Name);
+					_result.Add(_friendInfo.UserId);
 				}
 				
 			}

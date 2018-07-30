@@ -1,11 +1,27 @@
 #PlayMaker PUN Change Log
 
-###1.9.0.1
+###1.9.1
 **Release**  
-- 11/06/2018 
+- 30/07/2018
 
 **Update**  
-- Removed pun+ checks as it was ony for Unity 4x cycle.
+- Updated Photon Library
+- Updated PlayMaker utils Library
+
+
+###1.9.0.1
+**Release**  
+- 11/06/2018
+
+**Update**  
+- Removed pun+ checks as it was ony for Unity 4x cycle.  
+
+**New**
+- PlayMaker 1.9 network define symbol checks to allow network sync check boax for fsm variables. 
+
+**Upadte**
+- Actions using friends.name updated to Friends.UserId. 
+
 
 ###1.9
 **Release**  

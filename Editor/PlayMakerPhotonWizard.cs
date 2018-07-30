@@ -114,8 +114,24 @@ public class PlayMakerPhotonWizard : PhotonEditor
 			GUI.color = Color.white;
 		}
 
-        // custom layout (other parts can be overridden as well)
-      //  GUILayout.Label("My Custom Editor");
+		#if PLAYMAKER_1_9_OR_NEWER
+
+			// doesn't work, we need to check with PLAYMAKER_LEGACY_NETWORK compile flag
+			//EditorStartupPrefs.UseLegacyNetworking = GUILayout.Toggle(EditorStartupPrefs.UseLegacyNetworking,"enabled");
+
+			#if !PLAYMAKER_LEGACY_NETWORK
+			GUI.color =  PlayMakerPhotonEditorUtility.lightOrange;
+			GUILayout.Label("WARNING: PlayMaker needs to have its network UI system enabled","box",GUILayout.ExpandWidth(true));
+			GUI.color = Color.white;
+
+			if (GUILayout.Button(new GUIContent("Enable PlayMaker Network UI", "Displays the network sync property for Fsm Variables")))
+			{
+				PlayMakerEditorUtils.MountScriptingDefineSymbolToAllTargets("PLAYMAKER_LEGACY_NETWORK");
+			}
+
+			#endif
+		#endif
+
         base.OnGUI();
     }
 	
