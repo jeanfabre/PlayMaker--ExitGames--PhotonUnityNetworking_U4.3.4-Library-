@@ -42,9 +42,9 @@ public class PlayMakerPhotonWizard : PhotonEditor
         #endif
 
         #if UNITY_2017_2_OR_NEWER
-                EditorApplication.playModeStateChanged += EditorRefresh;
+            EditorApplication.playModeStateChanged += HandleOnPlayModeStateChanged;
         #else
-                EditorApplication.playmodeStateChanged += EditorRefresh;
+            EditorApplication.playmodeStateChanged += EditorRefresh;
         #endif
     }
 
