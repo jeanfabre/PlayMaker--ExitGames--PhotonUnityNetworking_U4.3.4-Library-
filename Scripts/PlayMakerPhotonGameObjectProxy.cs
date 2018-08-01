@@ -43,7 +43,7 @@ public class PlayMakerPhotonGameObjectProxy : Photon.MonoBehaviour {
 	void Awake () {
 	
 
-		Debug.Log("Player awake");
+		//Debug.Log("Player awake");
 			
 		// get the photon proxy for Photon Fsm Proxy to send event.
 		GameObject go = GameObject.Find("PlayMaker Photon Proxy");

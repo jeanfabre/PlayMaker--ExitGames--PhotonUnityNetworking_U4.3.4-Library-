@@ -35,9 +35,25 @@ public class PlayMakerPhotonWizard : PhotonEditor
 		WindowType = typeof(PlayMakerPhotonWizard);
 		RegisterOrigin = AccountService.Origin.Playmaker;
 
-        EditorApplication.hierarchyWindowChanged += EditorRefresh;
-        EditorApplication.playmodeStateChanged += EditorRefresh;
+        #if UNITY_2018_1_OR_NEWER
+            EditorApplication.hierarchyChanged += EditorRefresh;
+        #else
+            EditorApplication.hierarchyWindowChanged += EditorRefresh;
+        #endif
+
+        #if UNITY_2017_2_OR_NEWER
+                EditorApplication.playModeStateChanged += EditorRefresh;
+        #else
+                EditorApplication.playmodeStateChanged += EditorRefresh;
+        #endif
     }
+
+    #if UNITY_2017_2_OR_NEWER
+        static void HandleOnPlayModeStateChanged(PlayModeStateChange obj)
+        {   
+            EditorRefresh();
+        }
+    #endif
 	
 	private static bool shouldRefresh;
 	
@@ -71,6 +87,7 @@ public class PlayMakerPhotonWizard : PhotonEditor
 		//ShowRegistrationWizard();
 		
 		userHasSeenWizardIntro = false;
+
     }
 
 
@@ -114,22 +131,30 @@ public class PlayMakerPhotonWizard : PhotonEditor
 			GUI.color = Color.white;
 		}
 
+
+
 		#if PLAYMAKER_1_9_OR_NEWER
+
+		if (!FsmEditorSettings.UseLegacyNetworking || !FsmEditorSettings.ShowNetworkSync)
+		{
+			FsmEditorSettings.UseLegacyNetworking = true;
+			FsmEditorSettings.ShowNetworkSync = true;
+		}
 
 			// doesn't work, we need to check with PLAYMAKER_LEGACY_NETWORK compile flag
 			//EditorStartupPrefs.UseLegacyNetworking = GUILayout.Toggle(EditorStartupPrefs.UseLegacyNetworking,"enabled");
 
-			#if !PLAYMAKER_LEGACY_NETWORK
-			GUI.color =  PlayMakerPhotonEditorUtility.lightOrange;
-			GUILayout.Label("WARNING: PlayMaker needs to have its network UI system enabled","box",GUILayout.ExpandWidth(true));
-			GUI.color = Color.white;
-
-			if (GUILayout.Button(new GUIContent("Enable PlayMaker Network UI", "Displays the network sync property for Fsm Variables")))
-			{
-				PlayMakerEditorUtils.MountScriptingDefineSymbolToAllTargets("PLAYMAKER_LEGACY_NETWORK");
-			}
-
-			#endif
+//			#if !PLAYMAKER_LEGACY_NETWORK
+//			GUI.color =  PlayMakerPhotonEditorUtility.lightOrange;
+//			GUILayout.Label("WARNING: PlayMaker needs to have its network UI system enabled","box",GUILayout.ExpandWidth(true));
+//			GUI.color = Color.white;
+//
+//			if (GUILayout.Button(new GUIContent("Enable PlayMaker Network UI", "Displays the network sync property for Fsm Variables")))
+//			{
+//				PlayMakerEditorUtils.MountScriptingDefineSymbolToAllTargets("PLAYMAKER_LEGACY_NETWORK");
+//			}
+//
+//			#endif
 		#endif
 
         base.OnGUI();

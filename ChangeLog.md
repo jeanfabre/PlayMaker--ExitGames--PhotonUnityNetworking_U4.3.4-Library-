@@ -1,5 +1,11 @@
 #PlayMaker PUN Change Log
 
+###1.9.2
+**Release**  
+- 01/07/2018
+
+**Fix**  fixed Unity 2018 deprecation editor functions `hierarchyWindowChanged` and `playmodeStateChanged`
+
 ###1.9.1
 **Release**  
 - 30/07/2018
