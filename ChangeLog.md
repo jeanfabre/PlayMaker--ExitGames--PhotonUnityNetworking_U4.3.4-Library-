@@ -1,8 +1,14 @@
 #PlayMaker PUN Change Log
 
+###1.9.2.1
+**Release**  
+- 20/12/2018
+
+**New**  actions `PhotonNetworkSetIsOpen` and `PhotonNetworkSetIsVisible`
+
 ###1.9.2
 **Release**  
-- 01/07/2018
+- 01/11/2018
 
 **Fix**  fixed Unity 2018 deprecation editor functions `hierarchyWindowChanged` and `playmodeStateChanged`
 
