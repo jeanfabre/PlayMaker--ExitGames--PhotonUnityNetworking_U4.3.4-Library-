@@ -1,5 +1,11 @@
 #PlayMaker PUN Change Log
 
+###1.9.3
+**Release**  
+- 18/01/2019
+
+**Update** better error checking for all RPC actions on unsupported Event target options
+
 ###1.9.2.1
 **Release**  
 - 20/12/2018
