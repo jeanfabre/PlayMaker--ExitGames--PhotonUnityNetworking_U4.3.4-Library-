@@ -142,9 +142,14 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				return "";
 				//return "Photon target string must be set if selected.\n Available enums: All,AllBuffered,MasterClient,Others,OthersBuffered";
-			} 
-			
-			string _target = photonTargetsFromString.Value.ToLower();
+			}
+
+            if (eventTarget.target != FsmEventTarget.EventTarget.Self && eventTarget.target != FsmEventTarget.EventTarget.BroadcastAll)
+            {
+                return "eventTarget must be either Self or BroadcastAll";
+            }
+
+            string _target = photonTargetsFromString.Value.ToLower();
 			
 			switch (_target)
 			{

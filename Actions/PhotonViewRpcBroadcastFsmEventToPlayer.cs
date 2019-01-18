@@ -99,8 +99,17 @@ namespace HutongGames.PlayMaker.Actions
 			}
 			return new PhotonPlayer(true,-1,"invalid");
 		}
-		
-		
-		
-	}
+
+        public override string ErrorCheck()
+        {
+
+            if (eventTarget.target != FsmEventTarget.EventTarget.BroadcastAll)
+            {
+                return "eventTarget must be BroadcastAll";
+            }
+
+            return string.Empty;
+        }
+
+    }
 }
