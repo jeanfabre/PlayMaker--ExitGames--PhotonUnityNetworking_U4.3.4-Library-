@@ -140,7 +140,17 @@ namespace HutongGames.PlayMaker.Actions
 			visible.Value = _room.IsVisible;
 			playerCount.Value = _room.PlayerCount;
 			autoCleanUp.Value = _room.AutoCleanUp;
-			expectedUsers.Values = _room.ExpectedUsers;
+			
+			if (_room.ExpectedUsers == null)
+			{
+				expectedUsers.Values = new string[0];
+			}
+			else
+			{
+				expectedUsers.Values = _room.ExpectedUsers;
+			}
+
+			
 
 			// get the custom properties
 			int i = 0;

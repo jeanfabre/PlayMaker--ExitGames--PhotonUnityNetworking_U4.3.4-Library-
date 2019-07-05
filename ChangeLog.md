@@ -1,22 +1,42 @@
 #PlayMaker PUN Change Log
 
+
+###1.9.8
+**Release**  
+- 05/07/2019
+
+**Update**  
+- support for PUN 1.98  
+
+###1.9.7
+**Release**  
+- 27/05/2019
+
+**Update**  
+- support for PUN 1.97 and api changes
+- Fixed `GetRoomCustomProperties` with api change for expectedUsers, that can be null now
+
+
 ###1.9.3
 **Release**  
 - 18/01/2019
 
-**Update** better error checking for all RPC actions on unsupported Event target options
+**Update**  
+- better error checking for all RPC actions on unsupported Event target options
 
 ###1.9.2.1
 **Release**  
 - 20/12/2018
 
-**New**  actions `PhotonNetworkSetIsOpen` and `PhotonNetworkSetIsVisible`
+**New**  
+- actions `PhotonNetworkSetIsOpen` and `PhotonNetworkSetIsVisible`
 
 ###1.9.2
 **Release**  
 - 01/11/2018
 
-**Fix**  fixed Unity 2018 deprecation editor functions `hierarchyWindowChanged` and `playmodeStateChanged`
+**Fix**
+- fixed Unity 2018 deprecation editor functions `hierarchyWindowChanged` and `playmodeStateChanged`
 
 ###1.9.1
 **Release**  
@@ -34,10 +54,10 @@
 **Update**  
 - Removed pun+ checks as it was ony for Unity 4x cycle.  
 
-**New**
+**New**  
 - PlayMaker 1.9 network define symbol checks to allow network sync check boax for fsm variables. 
 
-**Upadte**
+**Update**  
 - Actions using friends.name updated to Friends.UserId. 
 
 
@@ -60,7 +80,7 @@
 **Release**  
 - 31/01/2018 
 
-**Fix**
+**Fix**  
 - `PhotonNetworkCreateRoom` and `PhotonNetworkCreateRoomAdvanced` fixed variable name display for Max number of Players.
 
 **Update**  
@@ -90,7 +110,7 @@
 - Update ArrayMaker Library
 - Updated PlayMaker
 
-**Fix**
+**Fix**  
 - Demo needs to check next frame for room player count.
 
 
