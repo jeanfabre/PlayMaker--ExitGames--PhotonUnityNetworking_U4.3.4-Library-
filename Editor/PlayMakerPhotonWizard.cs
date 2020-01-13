@@ -33,7 +33,9 @@ public class PlayMakerPhotonWizard : PhotonEditor
     static PlayMakerPhotonWizard()
     {
 		WindowType = typeof(PlayMakerPhotonWizard);
-		RegisterOrigin = AccountService.Origin.Playmaker;
+	//	PhotonEditor.CustomToken = "hwVXOE5Sh/LUGC74f2oZ8yX5CDCZFD/V8VX6KArZzbgWn5xVAH55lA==";
+	
+	//	RegisterOrigin = AccountService.Origin.Playmaker;
 
         #if UNITY_2018_1_OR_NEWER
             EditorApplication.hierarchyChanged += EditorRefresh;
@@ -78,7 +80,7 @@ public class PlayMakerPhotonWizard : PhotonEditor
     [MenuItem(PlayMakerPhotonMenuRoot + "Set up Photon Networking")]
     public static void Init()
     {
-		RegisterOrigin = AccountService.Origin.Playmaker;
+	//	RegisterOrigin = AccountService.Origin.Playmaker;
 	
         // custom title in custom, additinal menu entry
        PhotonEditor.CurrentLang.WindowTitle = "Photon Wizard";

@@ -1,5 +1,13 @@
 #PlayMaker PUN Change Log
 
+###1.10.1
+**Release**  
+- 13/01/2020
+
+**Update**  
+- support for PUN 1.101 
+- Updated PlayMaker utils Library
+- Updated ArrayMaker Library
 
 ###1.9.8
 **Release**  
